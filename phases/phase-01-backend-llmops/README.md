@@ -57,7 +57,7 @@ PostgreSQL schema design · Prisma ORM · Migrations · Redis caching patterns
 JWT access + refresh tokens · bcrypt · RBAC with custom guards · Passport.js
 
 **Validation**
-Zod runtime validation · class-validator decorators · DTO patterns
+Zod runtime validation · DTO patterns
 
 **Observability**
 Winston structured logging (JSON) · OpenTelemetry spans & traces · Correlation IDs · Request/response logging
