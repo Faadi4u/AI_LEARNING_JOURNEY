@@ -21,7 +21,7 @@ structured observability, and full LLM cost tracking from day one.
 
 | # | Project | Description |
 |---|---------|-------------|
-| P01 | [Blog API with JWT & Cost Tracking](./projects/p01-blog-api/) | Full REST API — auth, CRUD, input validation, per-request LLM cost logging |
+| P01 | [Blog API with JWT & Cost Tracking](./projects/p01-blog-api/) | Full REST API — auth, CRUD, refresh token and rotation, per-request LLM cost logging |
 | P02 | [LLMOps Dashboard](./projects/p02-llmops-dashboard/) | Prompt version control, A/B test scaffolding, token analytics, error rate by model |
 
 ---
