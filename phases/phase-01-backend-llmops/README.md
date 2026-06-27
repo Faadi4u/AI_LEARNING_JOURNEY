@@ -21,7 +21,7 @@ structured observability, and full LLM cost tracking from day one.
 
 | # | Project | Description |
 |---|---------|-------------|
-| P01 | [Blog API with JWT & Cost Tracking](./projects/p01-blog-api/) | Full REST API — auth, CRUD, input validation, per-request LLM cost logging |
+| P01 | [Blog API with JWT & Cost Tracking](./projects/p01-blog-api/) | Full REST API — auth, CRUD, refresh token and rotation, per-request LLM cost logging |
 | P02 | [LLMOps Dashboard](./projects/p02-llmops-dashboard/) | Prompt version control, A/B test scaffolding, token analytics, error rate by model |
 
 ---
@@ -57,7 +57,7 @@ PostgreSQL schema design · Prisma ORM · Migrations · Redis caching patterns
 JWT access + refresh tokens · bcrypt · RBAC with custom guards · Passport.js
 
 **Validation**
-Zod runtime validation · class-validator decorators · DTO patterns
+Zod runtime validation · DTO patterns
 
 **Observability**
 Winston structured logging (JSON) · OpenTelemetry spans & traces · Correlation IDs · Request/response logging
