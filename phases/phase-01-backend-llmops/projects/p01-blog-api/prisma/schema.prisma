@@ -1,0 +1,74 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role{
+  USER
+  ADMIN
+  SUPER_ADMIN
+}
+
+model User{
+  id Int @id @default(autoincrement())
+  name String
+  email String @unique
+  password String @unique
+  role Role @default(USER)
+  refreshTokens RefreshToken[]
+  comments Comment[]
+  posts Post[]
+  apiLog ApiLog[]
+  createdAt DateTime @default(now())
+  updatedAT DateTime @updatedAt
+}
+
+model Post{
+  id Int @id @default(autoincrement()) 
+  title String
+  content String
+  author User @relation(fields: [authorId] , references: [id], onDelete: Cascade)
+  authorId Int 
+  comments Comment[]
+  createdAt DateTime @default(now())
+}
+
+model Comment{
+  id Int  @id @default(autoincrement())
+  content String
+  author User @relation(fields: [authorId] , references: [id], onDelete: Cascade)
+  authorId Int
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId Int
+  createdAt DateTime @default(now())
+}
+
+model RefreshToken{
+  id Int @id @default(autoincrement())
+  token String @unique
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId Int
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+
+model ApiLog {
+  id         Int      @id @default(autoincrement())
+  userId     Int?
+  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  method     String
+  endpoint   String
+  statusCode Int
+  duration   Int      // in milliseconds
+  createdAt  DateTime @default(now())
+}
