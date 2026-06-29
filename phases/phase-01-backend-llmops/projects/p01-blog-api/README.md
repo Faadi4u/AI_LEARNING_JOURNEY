@@ -230,6 +230,7 @@ Coverage target: 80%+.
   with relations before writing any code.
 - Thought through ownership and cascade delete behavior up front.
 - Connected Prisma to Neon and ran the first migration.
+- Built user routes ( Get, Put, Patch, Delete)
 
 ---
 
